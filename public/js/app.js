@@ -81,6 +81,17 @@ $(function(){
         flightsList.sort(function(a,b){
             return b.start.dateTime - a.start.dateTime
         });
+        var tableHtml = '';
+        flightsList.forEach(function(flight){
+            tableHtml += '<tr>' +
+            '<td>' + flight.airline.name + '</td>' +
+            '<td>' + flight.flightNum + '</td>' +
+            '<td>' + new moment(flight.start.dateTime).format("MMMM Do YY, h:mm a") + '</td>' +
+            '<td>' + new moment(flight.finish.dateTime).format("MMMM Do YY, h:mm a") + '</td>' +
+            '<td>' + flight.price + '</td>' +
+            '</tr>'
+        });
+        $('#flight-list-table').append(tableHtml);
     }
 
     /* get user inputs */

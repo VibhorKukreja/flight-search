@@ -79,12 +79,12 @@ body {
     display: inline-block;
 }
 
-.data-container{
-    max-height: 480px;
+.flight-list-container{
+    max-height: 390px;
     overflow-y: auto;
 }
 
-.data-container-visible{
+.data-container{
     background-color: rgba(255,255,255,.5);
     padding: 25px 100px;
     border-top: 3px solid #a3a3a3;
@@ -93,6 +93,11 @@ body {
     width: 85%;
     border-radius: 0px 40px 0px 40px;
     margin-top: 50px;
+    display: none;
+}
+
+.data-container-visible{
+    display : block;
 }
 
 .dates{
