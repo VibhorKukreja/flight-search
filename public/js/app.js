@@ -54,22 +54,33 @@ $(function(){
                     });
 
                     $(".data-container").addClass('data-container-visible');
+                    _renderFlightsList(response);
                     _hideLoader();
-                    console.log( "success: ", response );
                 })
                 .fail(function( jqxhr, textStatus, error ) {
                     var err = JSON.parse(jqxhr.responseText).error;
                     _toggleErrorMsg(err);
+                    _hideLoader();
                 });
 
         }
     }
 
+    /* Display loader while waiting for API response */
     function _showLoader(){
         $('.loader').addClass('show-loader');
     }
+
+    /* hide loader */
     function _hideLoader(){
         $('.loader').removeClass('show-loader');
+    }
+
+    /* Rendering Table data */
+    function _renderFlightsList(flightsList){
+        flightsList.sort(function(a,b){
+            return b.start.dateTime - a.start.dateTime
+        });
     }
 
     /* get user inputs */
