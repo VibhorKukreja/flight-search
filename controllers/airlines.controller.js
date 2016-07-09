@@ -1,6 +1,7 @@
 var async = require('async');
 var airlineService = require('./../services/airlines.service');
 
+/* GET airlines listing. */
 exports.getAirlines = function (req, res, next) {
     airlineService.fetchAirlines(function (err, response) {
         if (err) {
@@ -11,6 +12,7 @@ exports.getAirlines = function (req, res, next) {
     });
 };
 
+/* GET airports listing. */
 exports.getAirports = function (req, res, next) {
     var query = req.query.q || '';
     airlineService.fetchAirports(query, function (err, response) {
@@ -22,6 +24,7 @@ exports.getAirports = function (req, res, next) {
     });
 };
 
+/* GET search listing. */
 exports.search = function (req, res, next) {
     var payload = {
         to: req.query.to || '',
