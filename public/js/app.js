@@ -137,15 +137,6 @@ $(function(){
             return false;
         }
 
-        var selectedDate = new Date(input.date).getTime(),
-            currentDate = new Date().getTime();
-        selectedDate += 86400000;
-
-        if(selectedDate < currentDate){
-            _toggleErrorMsg('Please select a future travel date.');
-            return false;
-        }
-
         _toggleErrorMsg("");
         return true;
     }
@@ -165,7 +156,6 @@ $(function(){
     /* update flight date */
     function _updateFlightDate(event){
         searchDetails.date = $(event.target).text();
-        console.log(searchDetails.date);
         _searchFlights();
     }
 });
