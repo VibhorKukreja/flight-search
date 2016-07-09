@@ -41,6 +41,7 @@ body {
 
 .form-group {
     padding: 0px 10px;
+    margin: auto 20px;
 }
 
 .form-container {
@@ -49,6 +50,26 @@ body {
     border: 3px solid #a3a3a3;
     position: absolute;
     margin: auto;
-    margin-left: 18%;
+    margin-left: 8%;
     top: 50px;
+    border-radius: 40px 0px 40px 0px;
+}
+
+.ui-menu-item{
+    border-bottom: 2px solid #a3a3a3;
+}
+
+.form-control[type='text']{
+    width: 200px;
+}
+
+.btn{
+    text-transform: capitalize;
+}
+
+.form-group label{
+    display: block;
+    text-align: left;
+    font-weight: bolder;
+    margin-bottom: -5px;
 }
