@@ -41,12 +41,17 @@ body {
 
 .form-group {
     padding: 0px 10px;
-    margin: auto 20px;
+}
+
+input[type='text'],input[type='date']{
+    position: relative;
+    top: 10px;
 }
 
 .form-container {
     background-color: rgba(255,255,255,.5);
     padding: 5px 100px;
+    padding-top: 15px;
     border-top: 3px solid #a3a3a3;
     border-bottom: 3px solid #a3a3a3;
     margin: auto;
@@ -60,7 +65,7 @@ body {
 }
 
 .form-control[type='text']{
-    width: 200px;
+    width: 100%;
 }
 
 .btn{
@@ -136,4 +141,7 @@ body {
 }
 .show-loader{
     display: block;
+}
+input{
+    margin-top: 5px;
 }
