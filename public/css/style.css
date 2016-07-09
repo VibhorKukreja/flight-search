@@ -156,3 +156,8 @@ th{
     height: 75px;
     color: #ff0000;
 }
+
+.dates .date:nth-child(3) a.dates-link{
+    pointer-events: none;
+    background-color: #184786;
+}
