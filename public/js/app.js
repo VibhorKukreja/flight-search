@@ -43,8 +43,10 @@ $(function(){
     function _searchFlights(){
         var searchDetails = _getSearchDetails();
         if(_isValidInput(searchDetails)){
+            _showLoader();
             $.getJSON('/flights/search', searchDetails)
                 .done(function(response) {
+                    _hideLoader();
                     console.log( "success: ", response );
                 })
                 .fail(function( jqxhr, textStatus, error ) {
@@ -60,6 +62,13 @@ $(function(){
                 $(this).html('<a class="dates-link">'+date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear()+'</a>');
             });
         }
+    }
+
+    function _showLoader(){
+        $('.loader').addClass('show-loader');
+    }
+    function _hideLoader(){
+        $('.loader').removeClass('show-loader');
     }
 
     /* get user inputs */

@@ -112,3 +112,22 @@ body {
 .dates .date .dates-link:hover{
     background-color: #3498db;
 }
+
+.loader{
+    position: absolute;
+    background-color: rgba(149, 165, 166,.5);
+    top : 0px;
+    bottom: 0px;
+    left: 0px;
+    right : 0px;
+    display: none;
+}
+.loader img{
+    width: 8%;
+    position: absolute;
+    top: 40%;
+    left: 46%;
+}
+.show-loader{
+    display: block;
+}
