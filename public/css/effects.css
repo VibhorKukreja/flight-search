@@ -20,7 +20,6 @@ h3 { color: #4a89dc; }
 
 .group {
     position: relative;
-    margin-bottom: 45px;
     display: inline-block;
 }
 
@@ -28,7 +27,7 @@ input {
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     -webkit-appearance: none;
-    background: #fafafa;
+    background: #ffffff;
     color: #636363;
     width: 100%;
     border: none;
@@ -130,7 +129,7 @@ input:focus ~ .highlight {
 
 /* Button */
 
-.button {
+input[type = 'button']{
     position: relative;
     display: inline-block;
     padding: 8px 24px;
@@ -142,7 +141,6 @@ input:focus ~ .highlight {
     -webkit-font-smoothing: antialiased;
     text-align: center;
     letter-spacing: 1px;
-    background: transparent;
     border: 0;
     border-bottom: 2px solid #3160B6;
     cursor: pointer;
