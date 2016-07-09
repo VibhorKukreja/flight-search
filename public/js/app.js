@@ -43,8 +43,14 @@ $(function(){
     function _searchFlights(){
         var searchDetails = _getSearchDetails();
         if(_isValidInput(searchDetails)){
-            //TODO : integrate search API
-            console.log(searchDetails);
+            $.getJSON('/flights/search', searchDetails)
+                .done(function(response) {
+                    console.log( "success: ", response );
+                })
+                .fail(function( jqxhr, textStatus, error ) {
+                    var err = textStatus + ", " + error;
+                    _toggleErrorMsg(err);
+                });
         }
     }
 
