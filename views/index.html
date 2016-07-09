@@ -15,6 +15,7 @@
 
         <!-- Custom CSS -->
         <link href="css/style.css" rel="stylesheet">
+        <link href="css/effects.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -36,21 +37,20 @@
             <div class="text-vertical-center">
                 <div class="form-container">
                     <form class="form-inline" role="form">
-                        <div class="form-group">
+                        <div class="form-group group">
+                            <input type="text" class="form-control" id="fromLocation">
                             <label for="fromLocation">From : </label>
-                            <input type="text" class="form-control" id="fromLocation" placeholder="Enter City Name">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group group">
+                            <input type="text" class="form-control" id="toLocation">
                             <label for="toLocation">To : </label>
-                            <input type="text" class="form-control" id="toLocation" placeholder="Enter City Name">
                         </div>
-                        <div class="form-group">
-                            <label for="travel-date">Travel Date :</label>
+                        <div class="form-group group">
                             <input type="date" class="form-control" id="travel-date">
                         </div>
-                        <div class="form-group">
-                            <input id="searchFlights" type="button" class="btn btn-default" value="Search">
-                        </div>
+                        <button type="submit" class="button buttonBlue">Search
+                            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -67,6 +67,7 @@
 
         <!--custom scripts-->
         <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/effects.js"></script>
 
     </body>
 
