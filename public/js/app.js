@@ -25,6 +25,11 @@ $(function(){
                 selector.val( ui.item.airportName+' ('+ ui.item.airportCode +')' );
                 selector.attr('data-airport-code', ui.item.airportCode);
                 return false;
+            },
+            change : function( event, ui ){
+                if(!ui.item){
+                    selector.attr('data-airport-code', '');
+                }
             }
         })
             .autocomplete( "instance" )._renderItem = function( ul, item ) {
@@ -55,26 +60,22 @@ $(function(){
     /* validate search input */
     function _isValidInput(input){
         if(!input.from){
-            $('.error-msg').html('Please enter a from location.');
-            $('.error-msg').show();
+            _toggleErrorMsg('Invalid source location.');
             return false;
         }
 
         if(!input.to){
-            $('.error-msg').html('Please enter a to location.');
-            $('.error-msg').show();
+            _toggleErrorMsg('Invalid destination location.');
             return false;
         }
 
         if(input.from == input.to){
-            $('.error-msg').html('From location and to location should be different.');
-            $('.error-msg').show();
+            _toggleErrorMsg('Source and Destination should be different.');
             return false;
         }
 
         if(!input.date){
-            $('.error-msg').html('Please select a travel date.');
-            $('.error-msg').show();
+            _toggleErrorMsg('Please select a travel date.');
             return false;
         }
 
@@ -83,13 +84,22 @@ $(function(){
         selectedDate += 86400000;
 
         if(selectedDate < currentDate){
-            $('.error-msg').html('Please select a future travel date.');
-            $('.error-msg').show();
+            _toggleErrorMsg('Please select a future travel date.');
             return false;
         }
 
-        $('.error-msg').html("");
-        $('.error-msg').hide();
+        _toggleErrorMsg("");
         return true;
+    }
+
+    /* toggle error message */
+    function _toggleErrorMsg(msg){
+        $('.error-msg').html(msg);
+        if(msg) {
+            $('.error-msg').show();
+        }else {
+            $('.error-msg').hide();
+        }
+
     }
 });
