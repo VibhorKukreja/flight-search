@@ -51,6 +51,9 @@ $(function(){
                     var err = textStatus + ", " + error;
                     _toggleErrorMsg(err);
                 });
+            $('.dates li').each(function(index){
+                $(this).html(searchDetails.date);
+            });
         }
     }
 

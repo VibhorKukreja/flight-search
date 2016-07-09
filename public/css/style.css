@@ -71,3 +71,15 @@ body {
 .error-msg {
     display: none;
 }
+
+.dates{
+    list-style-type: none;
+}
+
+.dates li{
+    display: inline-block;
+}
+
+.data-container{
+    margin-top: 200px;
+}
