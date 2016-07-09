@@ -46,7 +46,7 @@ body {
 
 .form-container {
     background-color: #fff;
-    padding: 15px 100px;
+    padding: 5px 100px;
     border: 3px solid #a3a3a3;
     position: absolute;
     margin: auto;
@@ -65,11 +65,4 @@ body {
 
 .btn{
     text-transform: capitalize;
-}
-
-.form-group label{
-    display: block;
-    text-align: left;
-    font-weight: bolder;
-    margin-bottom: -5px;
 }
