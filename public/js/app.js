@@ -48,7 +48,7 @@ $(function(){
                     console.log( "success: ", response );
                 })
                 .fail(function( jqxhr, textStatus, error ) {
-                    var err = textStatus + ", " + error;
+                    var err = JSON.parse(jqxhr.responseText).error;
                     _toggleErrorMsg(err);
                 });
             $('.dates li').each(function(index){

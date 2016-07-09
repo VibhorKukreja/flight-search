@@ -1,6 +1,3 @@
-/**
- * Created by arun on 9/7/16.
- */
 $(window, document, undefined).ready(function() {
 
     $('input').blur(function() {
