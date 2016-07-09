@@ -1,13 +1,15 @@
-/**
- * Created by arun on 9/7/16.
- */
 
 $(function(){
+
+    //variables
+    var searchDetails = {};
+
     // Events
     _fetchAirportsList('fromLocation');
     _fetchAirportsList('toLocation');
 
-    $('#searchFlights').on('click', _searchFlights);
+    $('#searchFlights').on('click', _getSearchDetails);
+    $(document).on('click', '.dates-link', _updateFlightDate);
 
     // Function declaration
     /* fetch airports list on user input */
@@ -41,7 +43,6 @@ $(function(){
 
     /* validates user input and sends search API request */
     function _searchFlights(){
-        var searchDetails = _getSearchDetails();
         if(_isValidInput(searchDetails)){
             _showLoader();
             $.getJSON('/flights/search', searchDetails)
@@ -50,7 +51,9 @@ $(function(){
                     $('.dates li').each(function(index){
                         var date  = new Date(searchDetails.date);
                         date.setDate(date.getDate()+(index-2));
-                        $(this).html('<a class="dates-link">'+date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear()+'</a>');
+                        $(this).html('<a class="dates-link">' + date.getFullYear() +
+                            '-' + ("0" + (date.getMonth() + 1)).slice(-2) +
+                            '-' + ("0" + date.getDate()).slice(-2) + '</a>');
                     });
 
                     $(".data-container").addClass('data-container-visible');
@@ -99,16 +102,17 @@ $(function(){
             '<td>' + flight.price + '</td>' +
             '</tr>'
         });
-        $('#flight-list-table').append(tableHtml);
+        $('#flight-list-table tbody').html(tableHtml);
     }
 
     /* get user inputs */
     function _getSearchDetails(){
-        return {
+        searchDetails =  {
             from : $('#fromLocation').attr('data-airport-code'),
             to : $('#toLocation').attr('data-airport-code'),
             date : $('#travel-date').val()
-        }
+        };
+        _searchFlights();
     }
 
     /* validate search input */
@@ -156,5 +160,12 @@ $(function(){
         }else {
             $('.error-msg').hide();
         }
+    }
+
+    /* update flight date */
+    function _updateFlightDate(event){
+        searchDetails.date = $(event.target).text();
+        console.log(searchDetails.date);
+        _searchFlights();
     }
 });
