@@ -47,7 +47,7 @@ label {
     position: absolute;
     pointer-events: none;
     left: 10px;
-    top: 2px;
+    top: 10px;
     -webkit-transition:all 0.2s ease;
     transition: all 0.2s ease;
 }
