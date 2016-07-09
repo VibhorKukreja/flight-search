@@ -51,8 +51,13 @@ $(function(){
                     var err = textStatus + ", " + error;
                     _toggleErrorMsg(err);
                 });
+
+            $(".data-container").addClass('data-container-visible');
+
             $('.dates li').each(function(index){
-                $(this).html(searchDetails.date);
+                var date  = new Date(searchDetails.date);
+                date.setDate(date.getDate()+(index-2));
+                $(this).html('<a class="dates-link">'+date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear()+'</a>');
             });
         }
     }
