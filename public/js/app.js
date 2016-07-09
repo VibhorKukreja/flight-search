@@ -51,8 +51,11 @@ $(function(){
                     var err = JSON.parse(jqxhr.responseText).error;
                     _toggleErrorMsg(err);
                 });
+
             $('.dates li').each(function(index){
-                $(this).html(searchDetails.date);
+                var date  = new Date(searchDetails.date);
+                date.setDate(date.getDate()+(index-2));
+                $(this).html('<a class="dates-link">'+date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear()+'</a>');
             });
         }
     }
@@ -106,9 +109,11 @@ $(function(){
         $('.error-msg').html(msg);
         if(msg) {
             $('.error-msg').show();
+            $(".data-container").removeClass('data-container-visible');
+            $('.dates li').html("");
         }else {
             $('.error-msg').hide();
+            $(".data-container").addClass('data-container-visible');
         }
-
     }
 });

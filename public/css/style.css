@@ -49,11 +49,10 @@ body {
     padding: 5px 100px;
     border-top: 3px solid #a3a3a3;
     border-bottom: 3px solid #a3a3a3;
-    position: absolute;
     margin: auto;
-    margin-left: 8%;
-    top: 50px;
+    width: 85%;
     border-radius: 40px 0px 40px 0px;
+    margin-top: 50px;
 }
 
 .ui-menu-item{
@@ -82,4 +81,34 @@ body {
 
 .data-container{
     margin-top: 200px;
+}
+
+.data-container-visible{
+    background-color: rgba(255,255,255,.5);
+    padding: 25px 100px;
+    border-top: 3px solid #a3a3a3;
+    border-bottom: 3px solid #a3a3a3;
+    margin: auto;
+    width: 85%;
+    border-radius: 0px 40px 0px 40px;
+    margin-top: 50px;
+}
+
+.dates{
+    text-align: center;
+}
+
+.dates .date .dates-link{
+    padding: 10px 20px;
+    margin: auto 10px;
+    background-color: #3498db;
+    border-radius: 20px;
+    font-weight: bolder;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dates .date .dates-link:hover{
+    background-color: #3498db;
 }
