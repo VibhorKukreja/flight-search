@@ -66,3 +66,7 @@ body {
 .btn{
     text-transform: capitalize;
 }
+
+.error-msg {
+    display: none;
+}

@@ -37,7 +37,10 @@ $(function(){
     /* validates user input and sends search API request */
     function _searchFlights(){
         var searchDetails = _getSearchDetails();
-        console.log(searchDetails);
+        if(_isValidInput(searchDetails)){
+            //TODO : integrate search API
+            console.log(searchDetails);
+        }
     }
 
     /* get user inputs */
@@ -47,5 +50,46 @@ $(function(){
             to : $('#toLocation').attr('data-airport-code'),
             date : $('#travel-date').val()
         }
+    }
+
+    /* validate search input */
+    function _isValidInput(input){
+        if(!input.from){
+            $('.error-msg').html('Please enter a from location.');
+            $('.error-msg').show();
+            return false;
+        }
+
+        if(!input.to){
+            $('.error-msg').html('Please enter a to location.');
+            $('.error-msg').show();
+            return false;
+        }
+
+        if(input.from == input.to){
+            $('.error-msg').html('From location and to location should be different.');
+            $('.error-msg').show();
+            return false;
+        }
+
+        if(!input.date){
+            $('.error-msg').html('Please select a travel date.');
+            $('.error-msg').show();
+            return false;
+        }
+
+        var selectedDate = new Date(input.date).getTime(),
+            currentDate = new Date().getTime();
+        selectedDate += 86400000;
+
+        if(selectedDate < currentDate){
+            $('.error-msg').html('Please select a future travel date.');
+            $('.error-msg').show();
+            return false;
+        }
+
+        $('.error-msg').html("");
+        $('.error-msg').hide();
+        return true;
     }
 });
