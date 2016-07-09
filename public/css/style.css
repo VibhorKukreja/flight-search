@@ -80,7 +80,8 @@ body {
 }
 
 .data-container{
-    margin-top: 200px;
+    max-height: 480px;
+    overflow-y: auto;
 }
 
 .data-container-visible{

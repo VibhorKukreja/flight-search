@@ -46,6 +46,14 @@ $(function(){
             _showLoader();
             $.getJSON('/flights/search', searchDetails)
                 .done(function(response) {
+
+                    $('.dates li').each(function(index){
+                        var date  = new Date(searchDetails.date);
+                        date.setDate(date.getDate()+(index-2));
+                        $(this).html('<a class="dates-link">'+date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear()+'</a>');
+                    });
+
+                    $(".data-container").addClass('data-container-visible');
                     _hideLoader();
                     console.log( "success: ", response );
                 })
@@ -54,11 +62,6 @@ $(function(){
                     _toggleErrorMsg(err);
                 });
 
-            $('.dates li').each(function(index){
-                var date  = new Date(searchDetails.date);
-                date.setDate(date.getDate()+(index-2));
-                $(this).html('<a class="dates-link">'+date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear()+'</a>');
-            });
         }
     }
 
@@ -122,7 +125,6 @@ $(function(){
             $('.dates li').html("");
         }else {
             $('.error-msg').hide();
-            $(".data-container").addClass('data-container-visible');
         }
     }
 });
