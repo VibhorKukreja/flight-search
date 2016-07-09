@@ -50,11 +50,9 @@ $(function(){
                     console.log( "success: ", response );
                 })
                 .fail(function( jqxhr, textStatus, error ) {
-                    var err = textStatus + ", " + error;
+                    var err = JSON.parse(jqxhr.responseText).error;
                     _toggleErrorMsg(err);
                 });
-
-            $(".data-container").addClass('data-container-visible');
 
             $('.dates li').each(function(index){
                 var date  = new Date(searchDetails.date);
@@ -120,9 +118,11 @@ $(function(){
         $('.error-msg').html(msg);
         if(msg) {
             $('.error-msg').show();
+            $(".data-container").removeClass('data-container-visible');
+            $('.dates li').html("");
         }else {
             $('.error-msg').hide();
+            $(".data-container").addClass('data-container-visible');
         }
-
     }
 });
