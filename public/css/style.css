@@ -85,8 +85,9 @@ input[type='text'],input[type='date']{
 }
 
 .flight-list-container{
-    max-height: 390px;
+    max-height: 370px;
     overflow-y: auto;
+    margin-top: 30px;
 }
 
 .data-container{
@@ -144,4 +145,14 @@ input[type='text'],input[type='date']{
 }
 input{
     margin-top: 5px;
+}
+
+th{
+    font-size: 16px;
+}
+
+.alert-danger {
+    background-color: transparent;
+    height: 75px;
+    color: #ff0000;
 }
