@@ -1,26 +1,14 @@
 var express = require('express');
-var request = require('request');
+var airlineController = require('./../controllers/airlines.controller');
 var router = express.Router();
 
 /* GET airlines listing. */
-router.get('/airlines', function(req, res, next) {
-  request.get({
-    url: 'http://node.locomote.com/code-task/airlines'
-  }, function (err, response) {
-    if(err) console.log(err);
-    res.send(response.body || err);
-  });
-});
+router.get('/airlines', airlineController.getAirlines);
 
 /* GET airports listing. */
-router.get('/airports', function(req, res, next) {
-  var query = req.query.q || '';
-  request.get({
-    url: 'http://node.locomote.com/code-task/airports?q=' + query
-  }, function (err, response) {
-    if(err) console.log(err);
-    res.send(response.body || err);
-  });
-});
+router.get('/airports', airlineController.getAirports);
+
+/* GET search listing. */
+router.get('/search', airlineController.search);
 
 module.exports = router;
